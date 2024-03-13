@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="Ej1.Views.LibroView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Ej1.Views" xmlns:viewmodels="clr-namespace:Ej1.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:LibrosViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <Image Margin="0,0,0,5" Height="180" Source="{Binding Portada}"></Image>
+        <TextBlock TextAlignment="Center" TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Text="{Binding Titulo}"></TextBlock>
+        <TextBlock TextAlignment="Center" FontStyle="Italic" Text="{Binding Autor}" ></TextBlock>
+    </StackPanel>
+</UserControl>
