@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <ContextMenu x:Key="menu1">
-            <MenuItem Header="Editar"></MenuItem>
+            <MenuItem Header="Editar" Command="{Binding Source={x:Reference usercontrol1}, Path=DataContext.VerEditarCommand}"></MenuItem>
             <MenuItem Header="Eliminar" Command="{Binding Source={x:Reference usercontrol1}, Path=DataContext.VerEliminarCommand}"></MenuItem>
         </ContextMenu>
         <DataTemplate x:Key="libroTemplate">
@@ -19,7 +19,7 @@
         <Button Command="{Binding VerAgregarCommand}" Content="+ Libro" DockPanel.Dock="Top" Padding="10,5" HorizontalAlignment="Right"></Button>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,5,0,0">
             
-            <ListBox BorderThickness="0" ItemsSource="{Binding Libros}" ItemTemplate="{StaticResource libroTemplate}" SelectedItem="{Binding Libro}" >
+            <ListBox BorderThickness="0" ItemsSource="{Binding Libros}" ItemTemplate="{StaticResource libroTemplate}" SelectedItem="{Binding Libro}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel></WrapPanel>
@@ -27,15 +27,7 @@
                 </ListBox.ItemsPanel>
 
             </ListBox>
-            
-            <!--<WrapPanel Background="AliceBlue">
-                <local:LibroView></local:LibroView>
-                <local:LibroView></local:LibroView>
-                <local:LibroView></local:LibroView>
-                <local:LibroView></local:LibroView>
-                <local:LibroView></local:LibroView>
-            </WrapPanel>-->
-            
+
         </ScrollViewer>
        
     </DockPanel>

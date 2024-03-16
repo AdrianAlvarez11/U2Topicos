@@ -39,9 +39,33 @@
                 <TextBlock TextAlignment="Center" Margin="5" FontSize="12" Foreground="Red" Text="{Binding Error}"></TextBlock>
                 
                 <WrapPanel HorizontalAlignment="Center" Margin="10">
-                    <Button Command="{Binding AgregarCommand}">Agregar</Button>
-                    <Button Command="{Binding}" Visibility="Hidden">Guardar</Button>
-                    <Button Command="{Binding CancelarCommand}">Cancelar</Button>
+                    <Button Padding="10,5">
+                          <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Content" Value="Agregar"></Setter>
+                                <Setter Property="Command" Value="{Binding AgregarCommand}"></Setter>
+                               
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Ventana}" Value="{x:Static viewmodels:Ventanas.Editar}">
+                                        <Setter Property="Content" Value="Guardar"></Setter>
+                                        <Setter Property="Command" Value="{Binding GuardarCommand}"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                          </Button.Style>
+                        
+                            <!--<Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Ventana}" Value="{x:Static viewmodels:Ventanas.Editar}">
+                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>-->
+                       
+                    </Button>
+                    <Button Padding="10,5" Command="{Binding CancelarCommand}" Content="Cancelar"></Button>
                 </WrapPanel>
             </StackPanel>
            
